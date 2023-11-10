@@ -1,0 +1,405 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiMetrics</name>
+    </assembly>
+    <members>
+        <member name="M:PublicQuery.Command.Command.GetAesKey(System.Byte[],System.String)">
+            <summary>
+            128位处理key 
+            </summary>
+            <param name="keyArray">原字节</param>
+            <param name="key">处理key</param>
+            <returns></returns>
+        </member>
+        <member name="M:PublicQuery.Command.Command.AesEncrypt(System.String,System.String,System.Boolean)">
+            <summary>
+            使用AES加密字符串,按128位处理key
+            </summary>
+            <param name="content">加密内容</param>
+            <param name="key">秘钥，需要128位、256位.....</param>
+            <returns>Base64字符串结果</returns>
+        </member>
+        <member name="M:PublicQuery.Command.Command.AesDecrypt(System.String,System.String,System.Boolean)">
+            <summary>
+            使用AES解密字符串,按128位处理key
+            </summary>
+            <param name="content">内容</param>
+            <param name="key">秘钥，需要128位、256位.....</param>
+            <returns>UTF8解密结果</returns>
+        </member>
+        <member name="T:SimpleHelpers.NamedLock">
+            <summary>
+            Synchronization helper: a static lock collection associated with a key.
+            NamedLock manages the lifetime of critical sections that can be accessed by a key (name) throughout the application.
+            It also have some helper methods to allow a maximum wait time (timeout) to acquire the lock and safely release it.
+            Note: this nuget package contains C# source code and depends on System.Collections.Concurrent introduced in .Net 4.0.
+            </summary>
+            <example>
+            // create a lock for this key
+            using (var padlock = new NamedLock (key))
+            {
+                if (padlock.Enter (TimeSpan.FromMilliseconds (100)))
+                {
+                    // do something
+                }
+                else
+                {
+                    // do some other thing
+                }
+            }
+            </example>
+        </member>
+        <member name="P:SimpleHelpers.NamedLock.IsLocked">
+            <summary>
+            Check if a lock was acquired.
+            </summary>
+        </member>
+        <member name="P:SimpleHelpers.NamedLock.Key">
+            <summary>
+            Gets the lock key name.
+            </summary>
+        </member>
+        <member name="P:SimpleHelpers.NamedLock.Lock">
+            <summary>
+            Gets the internal lock object.
+            </summary>
+        </member>
+        <member name="M:SimpleHelpers.NamedLock.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SimpleHelpers.NamedLock" /> class.
+            </summary>
+            <param name="key">The named lock key.</param>
+        </member>
+        <member name="M:SimpleHelpers.NamedLock.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing,
+            or resetting unmanaged resources.
+            Releases acquired lock and related resources.
+            </summary>
+        </member>
+        <member name="M:SimpleHelpers.NamedLock.Enter">
+            <summary>
+            Tries to acquire a lock.
+            </summary>
+        </member>
+        <member name="M:SimpleHelpers.NamedLock.Enter(System.Int32)">
+            <summary>
+            Tries to acquire a lock respecting the specified timeout.
+            </summary>
+            <param name="waitTimeoutMilliseconds">The wait timeout milliseconds.</param>
+            <returns>If the lock was acquired in the specified timeout</returns>
+        </member>
+        <member name="M:SimpleHelpers.NamedLock.Enter(System.TimeSpan)">
+            <summary>
+            Tries to acquire a lock respecting the specified timeout.
+            </summary>
+            <param name="waitTimeout">The wait timeout.</param>
+            <returns>If the lock was acquired in the specified timeout</returns>
+        </member>
+        <member name="M:SimpleHelpers.NamedLock.Exit">
+            <summary>
+            Releases the lock if it was already acquired.
+            Called also at "Dispose".
+            </summary>
+        </member>
+        <member name="M:SimpleHelpers.NamedLock.CreateAndEnter(System.String)">
+            <summary>
+            Creates a new instance and tries to acquire a lock.
+            </summary>
+            <param name="key">The named lock key.</param>
+        </member>
+        <member name="M:SimpleHelpers.NamedLock.CreateAndEnter(System.String,System.Int32)">
+            <summary>
+            Creates a new instance and tries to acquire a lock.
+            </summary>
+            <param name="key">The named lock key.</param>
+            <param name="waitTimeoutMilliseconds">The wait timeout milliseconds.</param>
+        </member>
+        <member name="M:SimpleHelpers.NamedLock.CreateAndEnter(System.String,System.TimeSpan)">
+            <summary>
+            Creates a new instance and tries to acquire a lock.
+            </summary>
+            <param name="key">The named lock key.</param>
+            <param name="waitTimeout">The wait timeout.</param>
+        </member>
+        <member name="T:Service.contentrecord">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Service.contentrecord.cid">
+            <summary>
+            Desc:
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:Service.contentrecord.cvalue">
+            <summary>
+            Desc:header或body
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:Service.contentrecord.ctype">
+            <summary>
+            Desc:request或者body
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:Service.contentrecord.cmd5">
+            <summary>
+            Desc:md5
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:Service.contentrecord.csha1">
+            <summary>
+            Desc:sha1
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="T:Service.shakehands">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Service.shakehands.cid">
+            <summary>
+            Desc:自增id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:Service.shakehands.cserviceName">
+            <summary>
+            Desc:服务的名称
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:Service.shakehands.curl">
+            <summary>
+            Desc:url的最长长度
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:Service.shakehands.cqueryValue">
+            <summary>
+            Desc:Get时的查询内容
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:Service.shakehands.crequestHeaderId">
+            <summary>
+            Desc:请求的头部
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:Service.shakehands.crequestBodyId">
+            <summary>
+            Desc:请求的body
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:Service.shakehands.cresponseHeaderId">
+            <summary>
+            Desc:响应的头部
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:Service.shakehands.cresponseBodyId">
+            <summary>
+            Desc:响应的尾部
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:Service.shakehands.cstatusCode">
+            <summary>
+            Desc:返回状态码
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:Service.shakehands.cstartTime">
+            <summary>
+            Desc:该过程的开始时间
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:Service.shakehands.cstopTime">
+            <summary>
+            Desc:该过程的结束时间
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:Service.shakehands.cmethod">
+            <summary>
+            Desc:请求方法
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:Service.shakehands.cspend">
+            <summary>
+            Desc:花费时间
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:Service.shakehands.clientip">
+            <summary>
+            Desc:ip地址
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="M:ApiMetrics.Controllers.MetricsController.Get(ApiMetrics.Controllers.MetricsRequest)">
+            <summary>
+            获取记录数据
+            </summary>
+            <param name="metricsRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApiMetrics.Controllers.MetricsController.Content(System.Int32)">
+            <summary>
+            获取请求的内容
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApiMetrics.Controllers.MetricsController.Metrics(ApiMetrics.Controllers.MetricsRequest)">
+            <summary>
+            获取每个时间段的访问状况，支撑时间轴图
+            </summary>
+            <param name="metricsRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApiMetrics.Controllers.MetricsController.Rank(ApiMetrics.Controllers.MetricsRequest)">
+            <summary>
+            获取一定条件内的Api调用排序
+            </summary>
+            <param name="metricsRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ApiMetrics.Controllers.MetricsRequest">
+            <summary>
+            请求参数实体
+            </summary>
+        </member>
+        <member name="T:ApiMetrics.Controllers.RecvController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ApiMetrics.Controllers.RecvController.Request.cid">
+            <summary>
+            Desc:自增id
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:ApiMetrics.Controllers.RecvController.Request.cserviceName">
+            <summary>
+            Desc:服务的名称
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:ApiMetrics.Controllers.RecvController.Request.curl">
+            <summary>
+            Desc:url的最长长度
+            Default:
+            Nullable:False
+            </summary>           
+        </member>
+        <member name="P:ApiMetrics.Controllers.RecvController.Request.cqueryValue">
+            <summary>
+            Desc:Get时的查询内容
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:ApiMetrics.Controllers.RecvController.Request.crequestHeaderId">
+            <summary>
+            Desc:请求的头部
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:ApiMetrics.Controllers.RecvController.Request.crequestBodyId">
+            <summary>
+            Desc:请求的body
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:ApiMetrics.Controllers.RecvController.Request.cresponseHeaderId">
+            <summary>
+            Desc:响应的头部
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:ApiMetrics.Controllers.RecvController.Request.cresponseBodyId">
+            <summary>
+            Desc:响应的尾部
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:ApiMetrics.Controllers.RecvController.Request.cstatusCode">
+            <summary>
+            Desc:返回状态码
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:ApiMetrics.Controllers.RecvController.Request.cstartTime">
+            <summary>
+            Desc:该过程的开始时间
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:ApiMetrics.Controllers.RecvController.Request.cstopTime">
+            <summary>
+            Desc:该过程的结束时间
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:ApiMetrics.Controllers.RecvController.Request.cmethod">
+            <summary>
+            Desc:请求方法
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="P:ApiMetrics.Controllers.RecvController.Request.cspend">
+            <summary>
+            Desc:花费时间
+            Default:
+            Nullable:True
+            </summary>           
+        </member>
+        <member name="M:ApiMetrics.Controllers.RecvController.Recv(Service.shakehands)">
+            <summary>
+            接收请求指标
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

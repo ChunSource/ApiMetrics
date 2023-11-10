@@ -1,0 +1,6 @@
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+WORKDIR /app
+COPY /publish/* /app/
+#APi指标的接收和查询
+EXPOSE 8003
+ENTRYPOINT ["dotnet", "ApiMetrics.dll"]
