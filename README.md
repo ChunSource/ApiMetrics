@@ -1,6 +1,6 @@
 # ApiMetrics
 
-> 没有好用的Http api调用统计工具，或者要收费，遂自己写了个简单的，可以单独使用，也可以配合net core
+> 没有好用的Http api调用统计工具，或者要收费，遂自己写了个简单的，可以单独使用，也可以配合net core，界面也非常简单
 
 ## 安装
 - 安装了VS第一遍编译会提示你缺什么库，直接安装就是了
@@ -41,3 +41,9 @@ Content-Length: 1234
   "clientip": ""
 }
 ```
+
+![](https://github.com/ChunSource/ApiMetrics/blob/main/1.png?raw=true)
+
+![](https://github.com/ChunSource/ApiMetrics/blob/main/2.png?raw=true)
+
+![](https://github.com/ChunSource/ApiMetrics/blob/main/3.png?raw=true)
